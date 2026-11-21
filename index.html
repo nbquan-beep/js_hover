@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Hover Gallery</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 20px;
+    }
+
+    #image {
+      width: 500px;
+      max-width: 100%;
+      height: 350px;
+      border: 2px solid #1f3a5f;
+      background-color: #e8eef6;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #000000;
+      font-size: 20px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .gallery {
+      margin-top: 20px;
+    }
+
+    .preview {
+      width: 120px;
+      height: 90px;
+      object-fit: cover;
+      margin-right: 10px;
+      border: 2px solid #1f3a5f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Hover Gallery</h1>
+
+  <div id="image">Hover over an image below to display here.</div>
+
+  <div class="gallery">
+    <img class="preview" alt="Brown labradoodle sitting near a stream in the woods"
+         src="https://nbquan-beep.github.io/WD4E-Intro_to_CSS3/CSS-week1-HW1/images/bacon_in_the_woods.png"
+         onmouseover="upDate(this)" onmouseleave="unDo()"
+         tabindex="0" onfocus="upDate(this)" onblur="unDo()">
+
+    <img class="preview" alt="Brown labradoodle posing in front of a fort made of branches"
+         src="https://nbquan-beep.github.io/WD4E-Intro_to_CSS3/CSS-week1-HW1/images/bacon_near_the_fort.png"
+         onmouseover="upDate(this)" onmouseleave="unDo()"
+         tabindex="0" onfocus="upDate(this)" onblur="unDo()">
+
+    <img class="preview" alt="A downed tree crossing a stream"
+         src="https://nbquan-beep.github.io/WD4E-Intro_to_CSS3/CSS-week1-HW1/images/downed_tree.png"
+         onmouseover="upDate(this)" onmouseleave="unDo()"
+         tabindex="0" onfocus="upDate(this)" onblur="unDo()">
+
+    <img class="preview" alt="Small waterfall at Munising"
+         src="https://nbquan-beep.github.io/WD4E-Intro_to_CSS3/CSS-week1-HW1/images/munising.jpg"
+         onmouseover="upDate(this)" onmouseleave="unDo()"
+         tabindex="0" onfocus="upDate(this)" onblur="unDo()">
+  </div>
+
+  <script>
+    // Bước 3: hàm upDate
+    function upDate(previewPic) {
+      console.log("upDate was called");  // 3a
+      console.log(previewPic.alt);       // 3b
+      console.log(previewPic.src);       // 3b
+
+      var box = document.getElementById("image");
+      box.innerHTML = previewPic.alt;                              // 3c
+      box.style.backgroundImage = "url('" + previewPic.src + "')"; // 3e
+    }
+
+    // Bước 4: hàm hoàn tác
+    function unDo() {
+      console.log("unDo was called");
+      var box = document.getElementById("image");
+      box.style.backgroundImage = "url('')";                        // 4a
+      box.innerHTML = "Hover over an image below to display here."; // 4b
+    }
+  </script>
+</body>
+</html>
